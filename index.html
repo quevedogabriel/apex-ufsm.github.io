@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub APE UFSM 2025 | Ferramentas de Análise de Política Externa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(26, 54, 93, 0.95);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1a365d;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            margin: 3rem 0 2rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #1a365d, #2c5282);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .app-badge {
+            background: #ed8936;
+            color: white;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-body {
+            padding: 1.5rem;
+        }
+
+        .app-footer {
+            padding: 1rem 1.5rem;
+            background: #f7fafc;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #1a365d;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2c5282;
+        }
+
+        footer {
+            background: rgba(26, 54, 93, 0.95);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🌍 Hub de Análise de Política Externa</h1>
+        <p>UFSM - Relações Internacionais 2025/2</p>
+    </header>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div>Ferramentas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25+</div>
+                <div>Estudantes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div>Teorias de RI</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">📱 Ferramentas Disponíveis</h2>
+
+        <div class="apps-grid">
+            <!-- App 1 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Institucionalismo Liberal</span>
+                    <h3 class="app-title">Análise de Sanções</h3>
+                    <p style="font-size: 0.9rem;">Brenda, Eduarda, Guilherme, Leila, Ana Luiza, Maria Isabel</p>
+                </div>
+                <div class="app-body">
+                    <p>Framework que classifica a eficácia de sanções considerando assimetria econômica e dependência comercial.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/01-analise-sancoes/" class="btn btn-primary">🚀 Acessar App</a>
+                </div>
+            </div>
+
+            <!-- App 2 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Realismo Estrutural</span>
+                    <h3 class="app-title">Calculadora de Ameaça</h3>
+                    <p style="font-size: 0.9rem;">Arthur e equipe</p>
+                </div>
+                <div class="app-body">
+                    <p>Quantifica ameaças interestatais através de poder material, proximidade territorial e alianças.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/02-calculadora-ameaca/" class="btn btn-primary">🚀 Acessar App</a>
+                </div>
+            </div>
+
+            <!-- App 3 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Realismo Clássico</span>
+                    <h3 class="app-title">Poder Nacional</h3>
+                    <p style="font-size: 0.9rem;">Augusto, Manuela, Rafaela, Vitor</p>
+                </div>
+                <div class="app-body">
+                    <p>Operacionaliza os elementos de poder nacional de Morgenthau em indicadores mensuráveis.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/03-poder-nacional/" class="btn btn-primary">🚀 Acessar App</a>
+                </div>
+            </div>
+
+            <!-- App 4 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Neorrealismo</span>
+                    <h3 class="app-title">Índice Alinhamento EUA-China</h3>
+                    <p style="font-size: 0.9rem;">Clara, Eduarda, Gabriela, Luana, Samara</p>
+                </div>
+                <div class="app-body">
+                    <p>Mede o posicionamento estratégico de países entre as esferas de influência americana e chinesa.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/04-indice-alinhamento/" class="btn btn-primary">🚀 Acessar App</a>
+                </div>
+            </div>
+
+            <!-- App 5 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Portal Integrado</span>
+                    <h3 class="app-title">Portal ERI 1098</h3>
+                </div>
+                <div class="app-body">
+                    <p>Portal complementar com documentação adicional e materiais de apoio.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/05-portal-eri/" class="btn btn-primary">🚀 Acessar Site</a>
+                </div>
+            </div>
+
+            <!-- App 6 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Realismo Ofensivo</span>
+                    <h3 class="app-title">Dashboard Estratégico China-EUA</h3>
+                    <p style="font-size: 0.9rem;">Eliziane, Diego, Liz</p>
+                </div>
+                <div class="app-body">
+                    <p>Dashboard com visualizações interativas da competição sistêmica em múltiplas dimensões.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/06-dashboard-estrategico/" class="btn btn-primary">🚀 Acessar App</a>
+                </div>
+            </div>
+
+            <!-- App 7 -->
+            <div class="app-card">
+                <div class="app-header">
+                    <span class="app-badge">Neorrealismo</span>
+                    <h3 class="app-title">Análise de Alinhamento</h3>
+                    <p style="font-size: 0.9rem;">Clara, Eduarda, Gabriela, Luana, Samara</p>
+                </div>
+                <div class="app-body">
+                    <p>Interface interativa para calcular índice de alinhamento de qualquer país entre EUA e China.</p>
+                </div>
+                <div class="app-footer">
+                    <a href="apps/07-analise-alinhamento/" class="btn btn-primary">🚀 Acessar App</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>© 2025 UFSM - Universidade Federal de Santa Maria</strong></p>
+        <p>Curso de Relações Internacionais | Análise de Política Externa</p>
+        <p>Prof. Dr. Júlio César Cossio Rodriguez</p>
+    </footer>
+</body>
+</html>
