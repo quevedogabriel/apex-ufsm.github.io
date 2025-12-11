@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Alinhamento EUA–China</title>
+    <style>
+        :root { 
+            --primary: #2c3e50; 
+            --blue-eua: #2980b9; 
+            --red-china: #c0392b; 
+            --gray-neutral: #7f8c8d; 
+            --bg-color: #f4f6f7; 
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color); 
+            margin: 0; 
+            padding: 20px; 
+            color: #333; 
+        }
+
+        .container { 
+            max-width: 950px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+
+        /* --- CABEÇALHO --- */
+        header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        h1 { color: var(--primary); margin: 0 0 10px 0; font-size: 2.2em; }
+        .subtitle { color: #666; font-style: italic; margin: 0; font-size: 1.1em; }
+
+        /* --- SEÇÃO TEÓRICA (NOVA) --- */
+        .theory-section {
+            background-color: #fff;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .theory-section h3 {
+            color: var(--primary);
+            border-left: 5px solid var(--blue-eua);
+            padding-left: 10px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .theory-section h4 {
+            color: var(--primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .theory-content p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .variable-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .variable-list li {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+
+        .variable-title {
+            font-weight: bold;
+            font-size: 1.05em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .highlight-box {
+            background-color: #eaf2f8;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+
+        .types-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .types-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Separador Visual */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue-eua), var(--gray-neutral), var(--red-china));
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        /* --- CALCULADORA --- */
+        .calculator-title { text-align: center; margin-bottom: 20px; color: var(--primary); }
+        
+        .selector-box { 
+            background-color: #e8f6f3; 
+            border: 2px solid #1abc9c; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+            text-align: center; 
+        }
+        
+        select#countrySelect { 
+            font-size: 1.1em; 
+            padding: 10px; 
+            width: 100%; 
+            max-width: 500px; 
+            border-radius: 5px; 
+            border: 1px solid #16a085; 
+            cursor: pointer;
+        }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        
+        .card { background: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #e9ecef; }
+        .card h3 { margin-top: 0; font-size: 1.1em; color: var(--primary); border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 15px; }
+        
+        label { display: block; margin-top: 10px; font-weight: 600; font-size: 0.9em; color: #555; }
+        input, select.param-input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+
+        /* --- RESULTADOS --- */
+        .result-area { background-color: #ecf0f1; padding: 25px; border-radius: 12px; text-align: center; margin-top: 20px; border: 2px solid transparent; transition: border-color 0.3s; }
+        .score-display { font-size: 3.5em; font-weight: bold; margin: 10px 0; line-height: 1; }
+        .status-text { font-size: 1.4em; font-weight: bold; margin-bottom: 20px; }
+
+        .spectrum-bar-container { 
+            position: relative; 
+            height: 35px; 
+            background: linear-gradient(90deg, var(--blue-eua) 0%, var(--gray-neutral) 50%, var(--red-china) 100%); 
+            border-radius: 20px; 
+            margin: 30px 0 10px 0; 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .indicator { 
+            position: absolute; 
+            top: -8px; 
+            width: 6px; 
+            height: 51px; 
+            background-color: #2c3e50; 
+            border: 3px solid white; 
+            transform: translateX(-50%); 
+            transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        
+        .legend { display: flex; justify-content: space-between; font-size: 0.85em; color: #666; font-weight: bold; margin-top: 5px; }
+        
+        button.calc-btn { 
+            width: 100%; 
+            padding: 18px; 
+            background-color: var(--primary); 
+            color: white; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1.3em; 
+            cursor: pointer; 
+            font-weight: bold;
+            transition: background 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        button.calc-btn:hover { background-color: #1a252f; transform: translateY(-2px); }
+
+        /* Responsividade */
+        @media (max-width: 768px) { 
+            .grid { grid-template-columns: 1fr; } 
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <h1>Índice de Alinhamento EUA–China</h1>
+        <p class="subtitle">Uma Abordagem Quantitativa para Analisar Tendências de Política Externa</p>
+    </header>
+
+    <div class="theory-section">
+        
+        <h3>🧭 Fundamentos Teóricos</h3>
+        <p>
+            <strong>Por que Realismo Estrutural?</strong><br>
+            O site parte do realismo estrutural (Waltz, 1979) para explicar como a estrutura do sistema internacional condiciona os Estados a escolher entre EUA e China.
+            Em um ambiente anárquico, os Estados buscam segurança, poder e sobrevivência.
+        </p>
+
+        <h3>⚙ Variáveis que Moldam o Alinhamento</h3>
+        <ul class="variable-list">
+            <li>
+                <span class="variable-title">🔴 1. Alianças Militares</span>
+                <strong>Como afetam o alinhamento:</strong> Conexões militares são o caminho mais direto para lidar com ameaças e equilibrar poder.<br>
+                <em style="color:#666; font-size:0.9em;">Inclui: Tratados de defesa, Exercícios conjuntos, Cooperação estratégica.</em>
+            </li>
+            <li>
+                <span class="variable-title">🟡 2. Interdependência Econômica</span>
+                <strong>O que revela:</strong> Mostra o quanto um Estado depende comercialmente de EUA ou China — e o quanto isso cria vulnerabilidade e influência.<br>
+                <em style="color:#666; font-size:0.9em;">Indicadores: Exportações, Importações, Dependência estrutural.</em>
+            </li>
+            <li>
+                <span class="variable-title">🔵 3. Proximidade Geográfica – Peso 2</span>
+                <strong>Por que importa:</strong> A distância até cada potência afeta pressões territoriais e capacidade de projeção de poder.<br>
+                <em style="color:#666; font-size:0.9em;">Analisamos: Distância ao território dos EUA, Distância à China.</em>
+            </li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4 style="margin-top:0;">🎯 Objetivo do Estudo</h4>
+            <p><strong>Para qual potência o Estado está alinhado?</strong><br>
+            A partir das três variáveis, calculamos a tendência de alinhamento do país examinado. O resultado pode cair em uma das três categorias:</p>
+            
+            <hr style="border:0; border-top:1px solid #cbd5e0; margin: 15px 0;">
+
+            <strong>🔍 Tipos de Alinhamento:</strong>
+            <ul class="types-list">
+                <li><strong>⚖ 1. Balanço de Poder:</strong> O Estado busca equilibrar as potências para evitar dominação.</li>
+                <li><strong>🚂 2. Bandwagoning:</strong> O Estado “pega carona” na potência dominante para obter vantagens.</li>
+                <li><strong>🌐 3. Não-Alinhamento:</strong> O Estado divide suas relações de forma equilibrada entre EUA e China, preservando autonomia.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <h2 class="calculator-title">🧮 Calculadora / Simulador</h2>
+    
+    <div class="selector-box">
+        <label>📂 Selecione um país da base de dados para preencher automaticamente:</label>
+        <select id="countrySelect" onchange="carregarPais()">
+            <option value="">-- Selecione na Lista Global --</option>
+        </select>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>1. Aliança Militar (0.4)</h3>
+            <label>Status da Relação:</label>
+            <select id="am_score" class="param-input">
+                <option value="0.0">0.0 - Aliado Formal EUA</option>
+                <option value="0.2">0.2 - Parceiro Militar EUA</option>
+                <option value="0.5">0.5 - Neutro / Sem Tratado</option>
+                <option value="0.8">0.8 - Parceiro Militar China</option>
+                <option value="1.0">1.0 - Aliado Formal China</option>
+            </select>
+            <p style="font-size:0.75em; color:#666; margin-top:8px">Baseado em tratados formais (NATO, etc) ou cooperação estratégica.</p>
+        </div>
+        <div class="card">
+            <h3>2. Interdependência (0.4)</h3>
+            <label>Comércio c/ EUA (milhões US$):</label>
+            <input type="number" id="trade_eua" value="0">
+            <label>Comércio c/ China (milhões US$):</label>
+            <input type="number" id="trade_china" value="0">
+        </div>
+        <div class="card">
+            <h3>3. Geografia (0.2)</h3>
+            <label>Dist. Washington (km):</label>
+            <input type="number" id="dist_eua" value="0">
+            <label>Dist. Pequim (km):</label>
+            <input type="number" id="dist_china" value="0">
+        </div>
+    </div>
+
+    <button class="calc-btn" onclick="calcular()">Calcular Índice Atualizado</button>
+
+    <div class="result-area" id="resultBox">
+        <h3>Resultado do Índice</h3>
+        <div class="score-display" id="scoreDisplay">--</div>
+        <div class="status-text" id="statusText">Aguardando cálculo...</div>
+        
+        <div class="spectrum-bar-container">
+            <div class="indicator" id="indicator" style="left: 50%;"></div>
+        </div>
+        <div class="legend">
+            <span>🇺🇸 1 (EUA)</span>
+            <span>⚖️ 50 (Neutro)</span>
+            <span>🇨🇳 100 (China)</span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // --- BASE DE DADOS ---
+    const rawData = {
+        "Afeganistão 🇦🇫": [0.5, 0, 100, 11000, 4200],
+        "África do Sul 🇿🇦": [0.5, 15000, 35000, 13000, 11700],
+        "Albânia 🇦🇱": [0.5, 25, 75, 7800, 7500],
+        "Alemanha 🇩🇪": [0.5, 140000, 160000, 6700, 7800],
+        "Angola 🇦🇴": [0.5, 20000, 80000, 10500, 11500],
+        "Arábia Saudita 🇸🇦": [0.2, 70000, 73000, 10500, 7500],
+        "Argélia 🇩🇿": [0.5, 60, 40, 6500, 9000],
+        "Argentina 🇦🇷": [0.5, 18000, 16000, 8000, 19000],
+        "Austrália 🇦🇺": [0.0, 35000, 85000, 15900, 7500],
+        "Áustria 🇦🇹": [0.5, 48, 52, 7000, 7600],
+        "Bangladesh 🇧🇩": [0.5, 47, 53, 12500, 3000],
+        "Bélgica 🇧🇪": [0.5, 55, 45, 6200, 8000],
+        "Bolívia 🇧🇴": [0.5, 40, 60, 6800, 18000],
+        "Brasil 🇧🇷": [0.0, 59000, 75000, 6800, 17600],
+        "Camboja 🇰🇭": [0.5, 3000, 4000, 14000, 3000],
+        "Canadá 🇨🇦": [0.0, 600000, 70000, 730, 10000],
+        "Cazaquistão 🇰🇿": [0.5, 1000, 25000, 9500, 3500],
+        "Chile 🇨🇱": [0.5, 35000, 65000, 8000, 19000],
+        "China 🇨🇳": [1.0, 0, 100000, 11000, 0],
+        "Colômbia 🇨🇴": [0.0, 52000, 48000, 3800, 16000],
+        "Coreia do Norte 🇰🇵": [1.0, 0, 5000, 10500, 800],
+        "Coreia do Sul 🇰🇷": [0.0, 100000, 215000, 11000, 950],
+        "Costa Rica 🇨🇷": [0.0, 6100, 3900, 3300, 14000],
+        "Cuba 🇨🇺": [0.8, 100, 900, 1800, 13000],
+        "Dinamarca 🇩🇰": [0.5, 56, 44, 6500, 7500],
+        "Egito 🇪🇬": [0.5, 6300, 3700, 9000, 7500],
+        "Emirados Árabes 🇦🇪": [0.5, 50000, 50000, 11000, 6000],
+        "Equador 🇪🇨": [0.0, 30, 70, 4500, 16000],
+        "Espanha 🇪🇸": [0.5, 58000, 42000, 6000, 9000],
+        "Estados Unidos 🇺🇸": [0.0, 100000, 0, 0, 11000],
+        "Filipinas 🇵🇭": [0.0, 47000, 53000, 13000, 3000],
+        "Finlândia 🇫🇮": [0.5, 48, 52, 6800, 6500],
+        "França 🇫🇷": [0.5, 70000, 60000, 6100, 8200],
+        "Gana 🇬🇭": [0.5, 31, 69, 8500, 11000],
+        "Grécia 🇬🇷": [0.5, 63, 37, 8000, 7500],
+        "Guatemala 🇬🇹": [0.0, 80, 20, 3000, 13500],
+        "Haiti 🇭🇹": [0.0, 77, 23, 2300, 13500],
+        "Holanda 🇳🇱": [0.5, 56000, 44000, 6200, 7900],
+        "Honduras 🇭🇳": [0.0, 84, 16, 2800, 13800],
+        "Índia 🇮🇳": [0.5, 60000, 70000, 12000, 3800],
+        "Indonésia 🇮🇩": [0.5, 26000, 50000, 16000, 5200],
+        "Irã 🇮🇷": [0.8, 10, 90, 10000, 5500],
+        "Iraque 🇮🇶": [0.5, 37, 63, 9800, 6500],
+        "Irlanda 🇮🇪": [0.5, 87, 13, 5300, 8500],
+        "Israel 🇮🇱": [0.0, 40000, 60000, 9300, 7500],
+        "Itália 🇮🇹": [0.5, 59000, 41000, 7000, 8000],
+        "Japão 🇯🇵": [0.0, 210000, 330000, 10900, 2100],
+        "Malásia 🇲🇾": [0.5, 35000, 65000, 15000, 4500],
+        "México 🇲🇽": [0.0, 400000, 60000, 3000, 12000],
+        "Myanmar 🇲🇲": [0.8, 10, 90, 13000, 2000],
+        "Nigéria 🇳🇬": [0.5, 30000, 15000, 9000, 11000],
+        "Noruega 🇳🇴": [0.5, 62, 38, 6000, 7000],
+        "Nova Zelândia 🇳🇿": [0.0, 28, 72, 14000, 10000],
+        "Paquistão 🇵🇰": [0.5, 5000, 12000, 11000, 3800],
+        "Panamá 🇵🇦": [0.0, 56, 44, 3300, 14500],
+        "Paraguai 🇵🇾": [0.0, 20, 80, 7500, 18000],
+        "Peru 🇵🇪": [0.0, 19, 81, 5500, 17000],
+        "Polônia 🇵🇱": [0.5, 44, 56, 7000, 7300],
+        "Portugal 🇵🇹": [0.5, 65, 35, 5500, 9500],
+        "Reino Unido 🇬🇧": [0.0, 99000, 81000, 5900, 8100],
+        "Rússia 🇷🇺": [0.8, 30000, 88000, 7800, 5800],
+        "Síria 🇸🇾": [0.8, 50, 50, 9500, 7000],
+        "Suécia 🇸🇪": [0.5, 51, 49, 6500, 7000],
+        "Suíça 🇨🇭": [0.5, 45, 55, 6500, 8000],
+        "Tailândia 🇹🇭": [0.0, 40000, 60000, 14000, 3300],
+        "Turquia 🇹🇷": [0.5, 20000, 25000, 8500, 7000],
+        "Ucrânia 🇺🇦": [0.5, 40, 60, 7800, 6500],
+        "Uruguai 🇺🇾": [0.0, 40, 60, 8300, 19000],
+        "Venezuela 🇻🇪": [0.8, 30000, 20000, 3300, 15000],
+        "Vietnã 🇻🇳": [0.5, 40, 60, 13500, 2500]
+    };
+
+    function iniciar() {
+        let select = document.getElementById('countrySelect');
+        let sortedKeys = Object.keys(rawData).sort();
+        
+        sortedKeys.forEach(key => {
+            let option = document.createElement("option");
+            option.value = key;
+            option.text = key;
+            select.appendChild(option);
+        });
+    }
+
+    function carregarPais() {
+        let select = document.getElementById('countrySelect');
+        let pais = select.value;
+
+        if (pais && rawData[pais]) {
+            let dados = rawData[pais];
+            document.getElementById('am_score').value = dados[0].toFixed(1);
+            document.getElementById('trade_eua').value = dados[1];
+            document.getElementById('trade_china').value = dados[2];
+            document.getElementById('dist_eua').value = dados[3];
+            document.getElementById('dist_china').value = dados[4];
+            calcular();
+        }
+    }
+
+    function calcular() {
+        let am = parseFloat(document.getElementById('am_score').value);
+        let tEUA = parseFloat(document.getElementById('trade_eua').value) || 0;
+        let tChina = parseFloat(document.getElementById('trade_china').value) || 0;
+        let dEUA = parseFloat(document.getElementById('dist_eua').value) || 0;
+        let dChina = parseFloat(document.getElementById('dist_china').value) || 0;
+
+        // IE: Interdependência Econômica
+        let totalT = tEUA + tChina;
+        let ie_rel = totalT > 0 ? tChina / totalT : 0.5;
+
+        // PG: Proximidade Geográfica (Inversa: + Perto China = Maior Score)
+        let totalD = dEUA + dChina;
+        let pg_rel = totalD > 0 ? dEUA / totalD : 0.5;
+
+        // Fórmula: 1 + 99 * (0.4 AM + 0.4 IE + 0.2 PG)
+        let fator = (0.4 * am) + (0.4 * ie_rel) + (0.2 * pg_rel);
+        let indice = 1 + (99 * fator);
+        let final = indice.toFixed(2);
+
+        // Atualizar Display
+        let display = document.getElementById('scoreDisplay');
+        display.innerText = final;
+        
+        // Mover Indicador
+        let p = final > 100 ? 100 : (final < 0 ? 0 : final);
+        document.getElementById('indicator').style.left = p + "%";
+
+        // Texto de Status e Cores
+        let st = document.getElementById('statusText');
+        let box = document.getElementById('resultBox');
+        
+        if (final < 40) {
+            st.innerText = "🔵 Esfera de Influência dos EUA"; 
+            st.style.color = "#2980b9"; 
+            box.style.borderColor = "#2980b9";
+            display.style.color = "#2980b9";
+        } else if (final > 60) {
+            st.innerText = "🔴 Esfera de Influência da China"; 
+            st.style.color = "#c0392b"; 
+            box.style.borderColor = "#c0392b";
+            display.style.color = "#c0392b";
+        } else {
+            st.innerText = "⚖️ Zona Neutra / Balanço de Poder"; 
+            st.style.color = "#7f8c8d"; 
+            box.style.borderColor = "#95a5a6";
+            display.style.color = "#7f8c8d";
+        }
+    }
+
+    window.onload = iniciar;
+</script>
+
+</body>
+</html>
