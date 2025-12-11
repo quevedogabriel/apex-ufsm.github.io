@@ -12,6 +12,12 @@
         }
 
         body {
+
+<!-- Seletor de Idioma -->
+<div class="lang-toggle">
+    <a href="index.html">🇧🇷 Português</a> | <a href="index-en.html">🇺🇸 English</a>
+</div>
+            
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f8f9fa;
             color: #212529;
@@ -233,6 +239,29 @@
                 font-size: 2rem;
             }
         }
+        /* Seletor de Idioma */
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.lang-toggle a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.lang-toggle a:hover {
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
@@ -375,6 +404,7 @@
         </div>
 
         <!-- Sobre o Projeto -->
+        
         <div class="about">
             <h2>📚 Sobre o Projeto</h2>
             <p>
@@ -386,6 +416,23 @@
             <p>
                 <strong>Metodologia:</strong> Todos os projetos utilizaram Inteligência Artificial generativa (Gemini, Perplexity, DeepSeek) como ferramenta de desenvolvimento, demonstrando como a IA pode auxiliar na criação de instrumentos acadêmicos rigorosos.
             </p>
+<!-- Seção da Equipe Acadêmica -->
+<div class="team-section">
+    <h3>👥 Supervisão Acadêmica</h3>
+    <div class="team-member">
+        <span class="team-role">Orientador:</span> Prof. Dr. Júlio César Cossio Rodriguez
+    </div>
+    <div class="team-member">
+        <span class="team-role">Coorientadores / Professores Assistentes:</span>
+    </div>
+    <div class="team-member" style="margin-left: 1.5rem;">
+        • Me. Gabriel Quevedo (Docência Orientada)
+    </div>
+    <div class="team-member" style="margin-left: 1.5rem;">
+        • Me. Amanda Lopes (Docência Orientada)
+    </div>
+</div>
+            
         </div>
 
     </div>
