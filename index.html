@@ -5,53 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub APE UFSM 2025</title>
     <style>
-
-.lang-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-.lang-toggle a {
-    color: #1e3a8a;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.lang-toggle a:hover {
-    text-decoration: underline;
-}
-
-/* Seção de Equipe Acadêmica */
-.team-section {
-    background: #f9fafb;
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin-top: 1.5rem;
-    border-left: 4px solid #3b82f6;
-}
-
-.team-section h3 {
-    color: #1e3a8a;
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-}
-
-.team-member {
-    margin-bottom: 0.5rem;
-    color: #4b5563;
-}
-
-.team-role {
-    font-weight: 600;
-    color: #1f2937;
-}        
         * {
             margin: 0;
             padding: 0;
@@ -59,11 +12,6 @@
         }
 
         body {
-<!-- Seletor de Idioma -->
-<div class="lang-toggle">
-    <a href="index.html">🇧🇷 Português</a> | <a href="index-en.html">🇺🇸 English</a>
-</div>
-            
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f8f9fa;
             color: #212529;
@@ -244,6 +192,54 @@
             line-height: 1.7;
         }
 
+        /* Seletor de Idioma */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .lang-toggle a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .lang-toggle a:hover {
+            text-decoration: underline;
+        }
+
+        /* Seção de Equipe Acadêmica */
+        .team-section {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .team-section h3 {
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-member {
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+        }
+
+        .team-role {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
         /* Footer */
         footer {
             background: #1f2937;
@@ -284,33 +280,21 @@
             .stat-number {
                 font-size: 2rem;
             }
+
+            .lang-toggle {
+                top: 10px;
+                right: 10px;
+                padding: 0.4rem 0.8rem;
+            }
         }
-        /* Seletor de Idioma */
-.lang-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-.lang-toggle a {
-    color: #1e3a8a;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.lang-toggle a:hover {
-    text-decoration: underline;
-}
-
     </style>
 </head>
-<>
+<body>
+    <!-- Seletor de Idioma -->
+    <div class="lang-toggle">
+        <a href="index.html">🇧🇷 Português</a> | <a href="index-en.html">🇺🇸 English</a>
+    </div>
+
     <!-- Header -->
     <header>
         <h1>🌍 Hub de Análise de Política Externa</h1>
@@ -450,11 +434,10 @@
         </div>
 
         <!-- Sobre o Projeto -->
-        
         <div class="about">
             <h2>📚 Sobre o Projeto</h2>
             <p>
-                Este hub reúne sete ferramentas analíticas de Análise de Política Externa desenvolvidas por estudantes do curso de Relações Internacionais da UFSM durante o segundo semestre de 2025, sob orientação do <strong>Prof. Dr. Júlio César Cossio Rodriguez</strong>.
+                Este hub reúne sete ferramentas analíticas de Análise de Política Externa desenvolvidas por estudantes do curso de Relações Internacionais da UFSM durante o segundo semestre de 2025.
             </p>
             <p>
                 Cada ferramenta operacionaliza teorias de Relações Internacionais (Realismo, Neorrealismo, Institucionalismo Liberal) em aplicações práticas, integrando dados empíricos de fontes reconhecidas como Correlates of War (COW), FMI, SIPRI e Banco Mundial.
@@ -462,23 +445,23 @@
             <p>
                 <strong>Metodologia:</strong> Todos os projetos utilizaram Inteligência Artificial generativa (Gemini, Perplexity, DeepSeek) como ferramenta de desenvolvimento, demonstrando como a IA pode auxiliar na criação de instrumentos acadêmicos rigorosos.
             </p>
-<!-- Seção da Equipe Acadêmica -->
-<div class="team-section">
-    <h3>👥 Supervisão Acadêmica</h3>
-    <div class="team-member">
-        <span class="team-role">Orientador:</span> Prof. Dr. Júlio César Cossio Rodriguez
-    </div>
-    <div class="team-member">
-        <span class="team-role">Coorientadores / Professores Assistentes:</span>
-    </div>
-    <div class="team-member" style="margin-left: 1.5rem;">
-        • Me. Gabriel Quevedo (Docência Orientada)
-    </div>
-    <div class="team-member" style="margin-left: 1.5rem;">
-        • Me. Amanda Lopes (Docência Orientada)
-    </div>
-</div>
-            
+
+            <!-- Seção da Equipe Acadêmica -->
+            <div class="team-section">
+                <h3>👥 Supervisão Acadêmica</h3>
+                <div class="team-member">
+                    <span class="team-role">Orientador:</span> Prof. Dr. Júlio César Cossio Rodriguez
+                </div>
+                <div class="team-member">
+                    <span class="team-role">Coorientadores / Professores Assistentes:</span>
+                </div>
+                <div class="team-member" style="margin-left: 1.5rem;">
+                    • Me. Gabriel Quevedo (Docência Orientada)
+                </div>
+                <div class="team-member" style="margin-left: 1.5rem;">
+                    • Me. Amanda Lopes (Docência Orientada)
+                </div>
+            </div>
         </div>
 
     </div>
@@ -488,11 +471,13 @@
         <p><strong>UFSM - Universidade Federal de Santa Maria</strong></p>
         <p>Curso de Relações Internacionais | Análise de Política Externa 2025/2</p>
         <p>Orientação: Prof. Dr. Júlio César Cossio Rodriguez</p>
+        <p>Coorientação: Me. Gabriel Quevedo | Me. Amanda Lopes</p>
         <p style="margin-top: 1rem;">
             <a href="https://github.com/seu-usuario/seu-repositorio">GitHub</a> | 
             <a href="mailto:apex.ufsm@gmail.com">Contato</a>
         </p>
     </footer>
 
-</>
+</body>
 </html>
+
